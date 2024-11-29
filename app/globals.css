@@ -1,6 +1,7 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+@import '@fortawesome/fontawesome-free/css/all.css';
 
 :root {
   --background: #ffffff;
@@ -21,7 +22,9 @@ body {
 }
 
 @layer utilities {
+  /* Removed unsupported text-wrap property */
   .text-balance {
-    text-wrap: balance;
+    overflow-wrap: break-word; /* Fallback solution for better text wrapping */
+    word-wrap: break-word;
   }
 }

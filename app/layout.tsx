@@ -6,9 +6,9 @@ import { ToastContainer } from "react-toastify"
 
 export default function RootLayout({
   children,
-}: {
-  readonly children: React.ReactNode;
-}) {
+}: Readonly<{
+  children: React.ReactNode;
+}>) {
   return (
     <html lang="en">
       <body className="font-sans">

@@ -6,7 +6,7 @@ import aboutImg from '@/public/images/webImage/about1.png'
 import oldMan from '@/public/images/webImage/man2.jpeg'
 import youngBoy from '@/public/images/webImage/men.jpeg'
 import busnwoman from '@/public/images/webImage/shippingWoman.jpeg'
-import officerwoman from '@/public/images/webImage/woman2.jpeg'
+
 
 export default function AboutPage() {
   return (

@@ -7,6 +7,9 @@ import {
   UserIcon,
 } from "@heroicons/react/24/solid";
 import Link from "next/link";
+import { useGetProfileQuery, useLogoutUserMutation } from "@/states/authentication";
+import { LuLogOut } from "react-icons/lu";
+import { useRouter } from "next/navigation";
 
 interface NavLink {
   label: string;
@@ -18,8 +21,11 @@ const Header = () => {
   const [isSearchOpen, setIsSearchOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
 
-  const toggleMenu = () => setIsMenuOpen((prev) => !prev);
-  const toggleSearch = () => setIsSearchOpen((prev) => !prev);
+  const toggleMenu = () => setIsMenuOpen(!isMenuOpen);
+  const toggleSearch = () => setIsSearchOpen(!isSearchOpen);
+  const { data: authUser } = useGetProfileQuery({});
+  const [logoutUser, { isSuccess: logoutSuccess }] = useLogoutUserMutation();
+  const router = useRouter();
 
   const navLinks: NavLink[] = [
     { label: "What's New", href: "#categories" },
@@ -35,13 +41,21 @@ const Header = () => {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
+  if (logoutSuccess) {
+    router.push("/login")
+  }
+
+  const handleLogout = async () => {
+    await logoutUser({});
+
+  }
+
   return (
     <header
-      className={` fixed top-0 left-0 w-full z-50 transition-all duration-300 ${
-        isScrolled
-          ? "bg-[#1E3A5F]/80 backdrop-blur-md shadow-lg"
-          : "bg-primary"
-      }`}
+      className={` fixed top-0 left-0 w-full z-50 transition-all duration-300 ${isScrolled
+        ? "bg-[#1E3A5F]/80 backdrop-blur-md shadow-lg"
+        : "bg-primary"
+        }`}
     >
       <div className="container mx-auto px-4 py-3 flex items-center justify-between">
         {/* Logo */}
@@ -75,9 +89,8 @@ const Header = () => {
         <div className="flex items-center text-white space-x-4">
           {/* Search Bar */}
           <div
-            className={`${
-              isSearchOpen ? "flex" : "hidden"
-            } lg:flex items-center bg-white rounded-full shadow-md w-full max-w-md px-4 py-2`}
+            className={`${isSearchOpen ? "flex" : "hidden"
+              } lg:flex items-center bg-white rounded-full shadow-md w-full max-w-md px-4 py-2`}
           >
             <select
               className="bg-transparent outline-none border-none text-gray-500 text-sm"
@@ -150,14 +163,21 @@ const Header = () => {
             <Link href="/cart" aria-label="View Cart">
               <ShoppingCartIcon className="w-5 h-5 cursor-pointer text-white" />
             </Link>
-            <Link href="/login" aria-label="User Login">
-              <UserIcon className="w-5 h-5 cursor-pointer text-white" />
-            </Link>
-          </div>
-        </div>
+            {
+              authUser
+                ? <Link href="/#" onClick={handleLogout}>
+                  <LuLogOut className="w-5 h-5 cursor-pointer text-white" />
+                </Link>
+                : <Link href="/login">
+                  <UserIcon className="w-5 h-5 cursor-pointer text-white" />
+                </Link>
+            }
+
+          </div >
+        </div >
 
         {/* Mobile Menu Toggle */}
-        <div className="md:hidden">
+        < div className="md:hidden" >
           <button onClick={toggleMenu} className="text-white" aria-label="Toggle mobile menu">
             {isMenuOpen ? (
               <svg
@@ -191,7 +211,7 @@ const Header = () => {
               </svg>
             )}
           </button>
-        </div>
+        </div >
         <div className="flex items-center space-x-4 text-white md:hidden">
           <Link href="/cart" aria-label="View Cart">
             <ShoppingCartIcon className="w-6 h-6 cursor-pointer text-white" />
@@ -200,26 +220,28 @@ const Header = () => {
             <UserIcon className="w-6 h-6 cursor-pointer text-white" />
           </Link>
         </div>
-      </div>
+      </div >
 
       {/* Mobile Menu */}
-      {isMenuOpen && (
-        <div className="md:hidden">
-          <nav className="bg-[#1E3A5F] flex flex-col space-y-2 p-4 text-white">
-            {navLinks.map((link) => (
-              <Link
-                key={link.href}
-                href={link.href}
-                className="hover:text-blue-400"
-                aria-label={`Navigate to ${link.label}`}
-              >
-                {link.label}
-              </Link>
-            ))}
-          </nav>
-        </div>
-      )}
-    </header>
+      {
+        isMenuOpen && (
+          <div className="md:hidden">
+            <nav className="bg-[#1E3A5F] flex flex-col space-y-2 p-4 text-white">
+              {navLinks.map((link) => (
+                <Link
+                  key={link.href}
+                  href={link.href}
+                  className="hover:text-blue-400"
+                  aria-label={`Navigate to ${link.label}`}
+                >
+                  {link.label}
+                </Link>
+              ))}
+            </nav>
+          </div>
+        )
+      }
+    </header >
   );
 };
 

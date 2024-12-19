@@ -10,7 +10,7 @@ import youngBoy from '@/public/images/webImage/men.jpeg'
 import busnwoman from '@/public/images/webImage/shippingWoman.jpeg'
 
 export default function AboutPage() {
-  // Variants for animated sections
+  // Animation variants remain the same
   const sectionVariants = {
     hidden: { opacity: 0, y: 50 },
     visible: {
@@ -23,7 +23,6 @@ export default function AboutPage() {
     }
   };
 
-  // Hover effect for core values
   const coreValueVariants = {
     rest: {
       scale: 1,
@@ -37,7 +36,6 @@ export default function AboutPage() {
     }
   };
 
-  // Team member hover effect
   const teamMemberVariants = {
     rest: {
       scale: 1,
@@ -51,39 +49,41 @@ export default function AboutPage() {
   };
 
   return (
-    <>
+    <div className="min-h-screen">
       <Header />
       <motion.div
         initial="hidden"
         animate="visible"
-        className="min-h-screen"
+        className="w-full"
       >
-        {/* Hero Section with Parallax-like Effect */}
+        {/* Hero Section - Enhanced tablet responsiveness */}
         <motion.section
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 0.8 }}
-          className="relative h-[400px] bg-primary overflow-hidden"
+          className="relative h-[300px] sm:h-[450px] lg:h-[500px] bg-primary overflow-hidden"
         >
           <div className="absolute inset-0 bg-gradient-to-r from-primary to-secondary opacity-90 animate-gradient-x" />
-          <div className="container relative z-10 mx-auto px-4 h-full flex items-center justify-center text-white">
+          <div className="max-w-7xl mx-auto px-4 sm:px-8 lg:px-8 h-full flex items-center justify-center text-white relative z-10">
             <motion.div
               initial={{ y: 50, opacity: 0 }}
               animate={{ y: 0, opacity: 1 }}
               transition={{ duration: 0.6 }}
-              className="text-center"
+              className="text-center w-full sm:max-w-2xl lg:max-w-4xl mx-auto"
             >
-              <h1 className="text-4xl md:text-5xl font-bold mb-4 tracking-wide">
+              <h1 className="text-3xl sm:text-5xl lg:text-6xl font-bold mb-4 sm:mb-6 tracking-wide px-4 sm:px-0">
                 About IMC Multiflexserve
               </h1>
-              <p className="text-xl max-w-2xl mx-auto opacity-90">
+              <p className="text-lg sm:text-xl lg:text-2xl opacity-90 px-4 sm:px-6">
                 Your trusted partner in e-commerce and professional services
               </p>
             </motion.div>
           </div>
         </motion.section>
 
-        {/* Mission & Vision */}
+        {/* Mission & Vision Section - Enhanced tablet responsiveness */}
+
+
         <motion.section
           variants={sectionVariants}
           initial="hidden"
@@ -91,8 +91,8 @@ export default function AboutPage() {
           viewport={{ once: true }}
           className="py-16 bg-white"
         >
-          <div className="container mx-auto px-4">
-            <div className="grid md:grid-cols-2 gap-12 items-center">
+          <div className="max-w-7xl mx-auto px-4">
+            <div className="grid md:grid-cols-2 gap-12 p-4 items-center">
               <div>
                 <motion.h2
                   initial={{ x: -50, opacity: 0 }}
@@ -138,18 +138,18 @@ export default function AboutPage() {
           </div>
         </motion.section>
 
-        {/* Core Values */}
-        <section className="py-16 bg-gray-50">
-          <div className="container mx-auto px-4">
+        {/* Core Values Section - Enhanced tablet responsiveness */}
+        <section className="py-12 sm:py-20 lg:py-24 bg-gray-50">
+          <div className="max-w-7xl mx-auto px-4 sm:px-8 lg:px-8">
             <motion.h2
               initial={{ opacity: 0, y: 50 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5 }}
-              className="text-3xl font-bold text-center text-primary mb-12"
+              className="text-3xl sm:text-4xl font-bold text-center text-primary mb-8 sm:mb-12 lg:mb-16"
             >
               Our Core Values
             </motion.h2>
-            <div className="grid md:grid-cols-4 gap-8">
+            <div className=" max-w-7xl grid  grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8 lg:gap-8 ">
               {[
                 {
                   icon: Building2,
@@ -177,30 +177,48 @@ export default function AboutPage() {
                   variants={coreValueVariants}
                   initial="rest"
                   whileHover="hover"
-                  className="text-center p-6 bg-white rounded-lg shadow-md transition-all duration-300"
+                  className="text-center p-6 sm:p-8 bg-white rounded-xl shadow-lg hover:shadow-2xl transition-all duration-300"
                 >
-                  <value.icon className="w-12 h-12 mx-auto mb-4 text-secondary transition-transform" />
-                  <h3 className="text-xl font-semibold mb-2">{value.title}</h3>
-                  <p className="text-gray-600">{value.description}</p>
+                  <value.icon className="w-12 h-12 sm:w-14 sm:h-14 lg:w-16 lg:h-16 mx-auto mb-4 sm:mb-6 text-secondary transition-transform" />
+                  <h3 className="text-xl sm:text-2xl font-semibold mb-3 sm:mb-4">{value.title}</h3>
+                  <p className="text-base sm:text-lg text-gray-600">{value.description}</p>
                 </motion.div>
               ))}
             </div>
           </div>
         </section>
 
-        {/* Team Section */}
-        <section className="py-16 bg-white">
-          <div className="container mx-auto px-4">
+        {/* Team Section - Enhanced tablet responsiveness */}
+        <section className="py-12 sm:py-20 lg:py-24 bg-white">
+          <div className="max-w-7xl mx-auto px-4 sm:px-8 lg:px-8">
             <motion.h2
               initial={{ opacity: 0, y: 50 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5 }}
-              className="text-3xl font-bold text-center text-primary mb-12"
+              className="text-3xl sm:text-4xl font-bold text-center text-primary mb-8 sm:mb-12 lg:mb-16"
             >
               Our Leadership Team
             </motion.h2>
-            <div className="grid md:grid-cols-3 gap-8">
+            <div className="grid max-w-7xl   grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 sm:gap-12  mx-auto">
               {[
+                {
+                  name: 'John Smith',
+                  position: 'Chief Executive Officer',
+                  image: oldMan,
+                  linkedin: '#',
+                },
+                {
+                  name: 'Sarah Johnson',
+                  position: 'Chief Operations Officer',
+                  image: busnwoman,
+                  linkedin: '#',
+                },
+                {
+                  name: 'Michael Chen',
+                  position: 'Chief Technology Officer',
+                  image: youngBoy,
+                  linkedin: '#',
+                },
                 {
                   name: 'John Smith',
                   position: 'Chief Executive Officer',
@@ -225,9 +243,9 @@ export default function AboutPage() {
                   variants={teamMemberVariants}
                   initial="rest"
                   whileHover="hover"
-                  className="text-center group relative"
+                  className="text-center group mx-auto w-full max-w-sm"
                 >
-                  <div className="relative w-48 h-48 mx-auto mb-4 overflow-hidden rounded-full">
+                  <div className="relative w-48 h-48 sm:w-60 sm:h-60 lg:w-64 lg:h-64 mx-auto mb-4 sm:mb-6 overflow-hidden rounded-full shadow-xl">
                     <Image
                       src={member.image}
                       alt={member.name}
@@ -240,12 +258,12 @@ export default function AboutPage() {
                       className="absolute inset-0 bg-black bg-opacity-50 flex items-center justify-center opacity-0 transition-opacity duration-300"
                     >
                       <a href={member.linkedin} target="_blank" rel="noopener noreferrer">
-                        <LinkedinIcon className="text-white w-10 h-10 hover:text-blue-500" />
+                        <LinkedinIcon className="text-white w-8 h-8 sm:w-10 sm:h-10 lg:w-12 lg:h-12 hover:text-blue-500" />
                       </a>
                     </motion.div>
                   </div>
-                  <h3 className="text-xl font-semibold text-primary">{member.name}</h3>
-                  <p className="text-gray-600">{member.position}</p>
+                  <h3 className="text-xl sm:text-2xl font-semibold text-primary mb-2 sm:mb-3">{member.name}</h3>
+                  <p className="text-base sm:text-lg text-gray-600">{member.position}</p>
                 </motion.div>
               ))}
             </div>
@@ -253,6 +271,6 @@ export default function AboutPage() {
         </section>
       </motion.div>
       <Footer />
-    </>
+    </div>
   );
 }

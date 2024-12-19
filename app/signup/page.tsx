@@ -1,73 +1,49 @@
-// Import necessary components and assets
-import userPic from "@/public/mall.png";
 import SignupForm from "@/components/Auth/SignupForm";
-import { IoFlashSharp } from "react-icons/io5";
-import { TbTelescope } from "react-icons/tb";
+import Image from "next/image";
+import { IoIosFlash } from "react-icons/io";
+import { IoTelescope } from "react-icons/io5";
+//import Link from "next/link";
 
-const InfoSection = () => (
-  <div className="flex flex-col justify-end items-center h-full bg-cover bg-center bg-no-repeat p-6 relative">
-    {/* Flash Icon Section aligned with the overlay */}
-    <div
-      className="w-92 p-1 relative z-20"
-      style={{
-        bottom: "calc(33% + 2rem)", // Raise it above the overlay section
-        left: "110%",
-        transform: "translateX(-10%)",
-      }}
-    >
-      <div className="flex items-center top-8 gap-0 p-4 bg-blue-500 text-white rounded-xl">
-        <IoFlashSharp className="w-6 h-6" />
-        <span className="font-medium text-lg">imc stock</span>
-      </div>
-    </div>
-
-    {/* Overlay Section */}
-<div
-  className=" bg-black/40 backdrop-blur-md rounded-lg text-white p-4 flex flex-col-2 items-start space-y-2 absolute z-10"
-  style={{
-    bottom: "calc(1% + 1rem)", // Align with the Flash Icon Section
-    left: "80%",
-    transform: "translateX(0%)", // Center horizontally
-    width: "100%",
-    maxWidth: "350px",
-    minWidth: "380px",
-    padding: "3rem",
-  }}
->
-  <div className="flex items-center gap-2 mb-4">
-    <TbTelescope className="w-6 h-6" />
-  </div>
-  <div className="text-base">
-    <p>shop the best products</p>
-    <p>from Across the internet,</p>
-    <p>Delivered to you Anytime,</p>
-    <p>Anywhere</p>
-  </div>
-</div>
-
-  </div>
-);
-
-export default function Signup() {
+const SignUpPage = () => {
   return (
-    <div className="flex flex-col md:flex-row h-screen">
-      {/* Left Section */}
-      <div className="w-full md:w-1/2 flex flex-col justify-center items-center bg-white relative">
+    <div className="flex max-md:flex-col min-h-screen">
+      {/* Left Section: Signup Form */}
+      <div className="w-1/2 max-md:w-full flex flex-col justify-center items-center bg-gray-100 max-md:py-14">
+        {/* Logo */}
+        <div className="absolute top-4 left-4 max-md:left-[calc(50%-3rem)]">
+          <Image
+            src="/logo.png"
+            alt="IMC Logo"
+            width={148}
+            height={114}
+            priority
+            className="w-24 h-auto"
+          />
+        </div>
         <SignupForm />
       </div>
 
-      {/* Right Section */}
-      <div
-        className="hidden md:flex w-full md:w-1/2 h-screen bg-cover bg-no-repeat relative"
-        style={{
-          backgroundImage: `url(${userPic.src})`,
-          backgroundRepeat: "no-repeat",
-          backgroundPosition: "bottom",
-          backgroundSize: "cover",
-        }}
-      >
-        <InfoSection />
+      {/* Right Section: Promotional Content */}
+      <div className="w-1/2 max-md:w-full max-md:hidden h-lvh border-l relative">
+        <Image
+          src="/mall.png"  // Changed to mall.png
+          alt="IMC Background"
+          fill
+          className="object-cover inset-0"
+        />
+        <div className="relative z-10 w-full h-lvh p-6 rounded-lg flex flex-col justify-center">
+          <h2 className="text-lg font-bold text-white bg-opacity-90 backdrop-blur-lg bg-logoBlue p-2 pl-3 rounded-full flex gap-x-2 items-center w-1/3 max-lg:w-full">
+            <IoIosFlash size={35} className="bg-blue-300 p-1 text-white rounded-full" />
+            Imc Stock
+          </h2>
+          <p className="text-white text-lg bg-black bg-opacity-20 mt-2 flex flex-col p-3 gap-y-2 backdrop-blur-lg rounded-lg w-1/3 max-lg:w-full">
+            <IoTelescope size={40} className="bg-black p-1.5 block text-white rounded-lg" />
+            Shop the Best Products from Across the Internet, Delivered to You Anytime, Anywhere.
+          </p>
+        </div>
       </div>
     </div>
   );
-}
+};
+
+export default SignUpPage;

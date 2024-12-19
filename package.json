@@ -20,7 +20,10 @@
     "react-day-picker": "^9.4.4",
     "react-dom": "^18",
     "react-icons": "^5.4.0",
+<<<<<<< HEAD
 
+=======
+>>>>>>> 067abe6dfa8e581d8524dcf0ae8bdd7143b4801d
     "tailwind-merge": "^2.5.5"
   },
   "devDependencies": {

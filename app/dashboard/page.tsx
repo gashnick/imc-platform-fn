@@ -1,5 +1,5 @@
 "use client";
-import Dashboard from "@/components/Auth/Dashboard";
+import Dashboard from "@/components/Dashboard";
 
 const DashboardPage: React.FC = () => {
     return (

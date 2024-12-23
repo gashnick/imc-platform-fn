@@ -12,7 +12,7 @@ const LoginPage = () => {
       </div>
 
       {/* Right Section: Promotional Content */}
-      <div className="w-1/2 max-md:w-full h-lvh relative">
+      <div className="w-1/2 max-md:w-full max-md:hidden h-lvh relative">
             {/* Background Image */}
             <div className="relative w-full h-lvh">
                 <Image

@@ -5,9 +5,6 @@
  * @type { string[] }
  */
 export const publicRoutes = [
-    /^\/blogs(\/.*)?$/,
-    /^\/projects(\/.*)?$/, // Match any path that starts with "/projects"
-    /^\/api(\/.*)?$/,
     "/",
 ];
 
@@ -18,18 +15,19 @@ export const publicRoutes = [
  * @type { string[] }
  */
 export const authRoutes = [
-    "/auth",
-    "/auth/forgot-password",
-    /^\/auth\/reset-password(\/.*)?$/,
+    "/login",
+    "/signup",
+    "/forgot-password",
+    "/reset-password",
 ]
 
 /**
  * 
- * The routes for API authentication 
- * Routes that start with this prefix are used for api authentication purposes
+ * The routes for APIs 
+ * Routes that start with this prefix are used for api calls
  * @type { string }
  */
-export const apiAuthPrefix = "/api/auth";
+export const apiPrefix = "/api";
 
 
 /**

@@ -3,6 +3,6 @@ services:
     image: imc-platform # Name your Docker image
     build:
       context: .
-      dockerfile: Dockerfile
+      dockerfile: Dockerfile.dev
     ports:
-      - "3000:3000"
+      - "4000:4000"

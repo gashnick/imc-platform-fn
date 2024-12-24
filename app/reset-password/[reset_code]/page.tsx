@@ -14,7 +14,7 @@ const ResetPassword = ({ params: { reset_code } }: IResetProps ) => {
       {/* Left Section: Form and Information */}
       <div className="w-full lg:w-1/2 p-8 lg:p-16">
         {/* Logo */}
-        <div className="absolute top-4 left-4">
+        <div className="absolute top-4 left-4 max-md:relative max-md:flex max-md:justify-center max-md:left-0">
           <Image
             src="/logo.png"
             alt="IMC Logo"
@@ -25,7 +25,7 @@ const ResetPassword = ({ params: { reset_code } }: IResetProps ) => {
         </div>
         
         {/* Title and Information */}
-        <h1 className="text-3xl font-bold text-gray-900 text-center pb-2">Reset password</h1>
+        <h1 className="text-3xl font-bold text-gray-900 text-center pb-2 max-md:mt-14">Reset password</h1>
 
         {/* Forgot Password Form */}
         <ResetPasswordForm reset_code={ reset_code }/> {/* Using the form here */}

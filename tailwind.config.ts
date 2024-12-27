@@ -9,7 +9,7 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
-         primary: {
+        primary: {
           DEFAULT: '#1E3A5F',
           foreground: '#FFFFFF',
         },
@@ -17,6 +17,7 @@ const config: Config = {
           DEFAULT: '#25AAE1',
           foreground: '#ffffff',
         },
+        logoBlue: "#25aae1"
       },
     },
   },

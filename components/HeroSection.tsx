@@ -166,7 +166,7 @@ const HeroSection: React.FC = () => {
               </motion.div>
 
               {/* Image Content */}
-              <motion.div
+              {/* <motion.div
                 className="relative w-full lg:w-1/2 h-[300px] lg:h-[400px]"
                 style={{ perspective: 1000 }}
               >
@@ -192,7 +192,7 @@ const HeroSection: React.FC = () => {
                     priority
                   />
                 </motion.div>
-              </motion.div>
+              </motion.div> */}
             </motion.div>
           </AnimatePresence>
 

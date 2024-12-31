@@ -59,30 +59,30 @@ export function HeroSlide({ slide, mousePosition, isActive }: HeroSlideProps) {
             exit="exit"
         >
             <motion.div
-                className="space-y-6 text-white max-w-xl mx-auto lg:mx-0"
+                className="space-y-6 mt-12 text-white max-w-xl mx-auto lg:mx-0"
                 variants={contentVariants}
             >
                 <motion.div
-                    className="flex items-center space-x-3"
+                    className="flex items-center mx-12 space-x-3"
                     whileHover={{ scale: 1.05 }}
                 >
                     {slide.icon}
-                    <span className="text-sm uppercase tracking-wider font-medium">
+                    <span className="text-sm mx-12 uppercase tracking-wider font-medium">
                         Featured
                     </span>
                 </motion.div>
 
-                <h1 className="text-3xl sm:text-4xl lg:text-5xl xl:text-6xl font-bold leading-tight">
+                <h1 className="text-3xl mx-12 sm:text-4xl lg:text-5xl xl:text-6xl font-bold leading-tight">
                     {slide.text}
                 </h1>
 
-                <p className="text-lg sm:text-xl text-gray-200">
+                <p className="text-lg mx-12 sm:text-xl text-gray-200">
                     {slide.subText}
                 </p>
 
                 <a href="http://imc.rw/Products" className=" ">
                     <motion.button
-                        className="bg-white text-blue-900 px-6 sm:px-8 py-3 sm:py-4 mt-5 rounded-full 
+                        className="bg-white mx-12 text-blue-900 px-6 sm:px-8 py-3 sm:py-4 mt-5 rounded-full 
     font-semibold text-base sm:text-lg shadow-xl hover:shadow-2xl transform-gpu"
                         whileHover={{
                             scale: 1.05,

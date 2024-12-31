@@ -166,13 +166,14 @@ const HeroSection: React.FC = () => {
               </motion.div>
 
               {/* Image Content */}
-              {/* <motion.div
+              <motion.div
                 className="relative w-full lg:w-1/2 h-[300px] lg:h-[400px]"
                 style={{ perspective: 1000 }}
               >
                 <motion.div
                   className="w-full h-full"
                   variants={imageVariants}
+                  initial="initial"
                   animate={{
                     rotateY: mousePosition.x * 15,
                     rotateX: -mousePosition.y * 15,
@@ -186,13 +187,13 @@ const HeroSection: React.FC = () => {
                   <Image
                     src={slides[currentIndex].watchImage}
                     alt="Hero Image"
-                    layout="fill"
-                    objectFit="contain"
+                    fill
+                    style={{ objectFit: "contain" }}
                     className="drop-shadow-2xl"
                     priority
                   />
                 </motion.div>
-              </motion.div> */}
+              </motion.div>
             </motion.div>
           </AnimatePresence>
 

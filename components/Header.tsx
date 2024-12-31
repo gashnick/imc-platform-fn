@@ -31,7 +31,7 @@ const Header = () => {
     { label: "What's New", href: "#categories" },
     { label: "Categories", href: "#categories" },
     { label: "Services", href: "#services" },
-    { label: "Products", href: "#product" },
+    { label: "Products", href: "/Products" },
   ];
 
   useEffect(() => {
@@ -52,15 +52,16 @@ const Header = () => {
 
   return (
     <header
-      className={` fixed top-0 left-0 w-full z-50 transition-all duration-300 ${isScrolled
-        ? "bg-[#1E3A5F]/80 backdrop-blur-md shadow-lg"
-        : "bg-primary"
-        }`}
+      className={` fixed top-0 left-0 w-full z-50 transition-all duration-300 ${
+        isScrolled
+          ? "bg-[#1E3A5F]/80 backdrop-blur-md shadow-lg"
+        : "bg-[#1E3A5F]"
+      }`}
     >
       <div className="container mx-auto px-4 py-3 flex items-center justify-between">
         {/* Logo */}
         <div className="flex items-center space-x-4">
-          <Link href="#heroSection" aria-label="Go to Hero Section">
+          <Link href={"/"}>
             <Image
               src="/images/logo.png"
               alt="Logo"

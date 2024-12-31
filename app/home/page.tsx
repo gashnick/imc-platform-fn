@@ -1,10 +1,10 @@
 import Header from "@/components/Header"
-import Footer from "@/components/Footer";
-import MinNav from "@/components/MinNav";
-import HeroSection from "@/components/HeroSection";
-import Product from "@/components/Product";
+import Footer from "@/components/footer/Footer";
+import HeroSection from "@/components/hero/HeroSection";
 import Categories from "@/components/Categories";
 import Services from "@/components/Services";
+import { ProductList } from "@/components/product/ProductList";
+import { ProductCategories } from "@/components/product/ProductCategories";
 
 const Homepage = () => {
   return (
@@ -12,8 +12,8 @@ const Homepage = () => {
        <main className="flex flex-col gap-2">
         <Header />
         <HeroSection />
-        <MinNav />
-        <Product />
+        <ProductCategories />
+        <ProductList />
         <Categories/>
         <Services />
       </main>

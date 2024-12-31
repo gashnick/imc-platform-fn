@@ -63,8 +63,7 @@ const Services: React.FC = () => (
         <div className="flex flex-col space-y-6">
           <h2 className="text-3xl font-bold text-[#25aae1]">Our Services</h2>
           <p className="text-[#25aae1] text-md lg:text-3xl lg:w-[50%] font-light leading-relaxed">
-            We are your one-stop-shop talent platform to access and manage all
-            types of workforce, on-demand.
+              Explore our diverse range of services, designed to meet all your personal and business needs on one convenient platform.
           </p>
           <button className="px-6 py-3 bg-[#1E3A5F] text-white text-xl rounded-full shadow-md hover:bg-[#25aae1] transition-colors duration-300 w-max">
             Find Qualified Individuals

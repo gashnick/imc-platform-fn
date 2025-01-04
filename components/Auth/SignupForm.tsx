@@ -67,6 +67,8 @@ const SignupForm = () => {
     return message;
   }
 
+  
+
   return (
     <div className="max-w-md w-full px-6 rounded-lg relative">
       <h1 className="text-3xl font-semibold text-gray-800 text-center mt-16">

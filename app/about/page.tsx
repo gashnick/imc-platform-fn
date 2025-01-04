@@ -3,7 +3,7 @@ import Image from 'next/image';
 import { motion } from 'framer-motion';
 import { Building2, Users, Target, Award, LinkedinIcon } from 'lucide-react';
 import Header from '@/components/Header';
-import Footer from '@/components/Footer';
+import Footer from '@/components/footer/Footer';
 import aboutImg from '@/public/images/webImage/about1.png'
 import oldMan from '@/public/images/webImage/man2.jpeg'
 import youngBoy from '@/public/images/webImage/men.jpeg'

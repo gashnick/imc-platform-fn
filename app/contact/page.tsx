@@ -3,7 +3,7 @@ import { useState } from 'react'
 import { Mail, Phone, MapPin, Clock } from 'lucide-react'
 import { motion } from 'framer-motion'
 import Header from '@/components/Header';
-import Footer from '@/components/Footer';
+import Footer from '@/components/footer/Footer';
 
 interface FormData {
     firstName: string
